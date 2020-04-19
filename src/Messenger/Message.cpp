@@ -17,6 +17,7 @@
 */
 
 #include <f1x/aasdk/Messenger/Message.hpp>
+#include <f1x/aasdk/Common/Log.hpp>
 
 namespace f1x
 {
