@@ -38,7 +38,7 @@ AccessoryModeQueryChain::AccessoryModeQueryChain(IUSBWrapper& usbWrapper,
 }
 
 void AccessoryModeQueryChain::start(DeviceHandle handle, Promise::Pointer promise)
-{   
+{
     strand_.dispatch([this, self = this->shared_from_this(), handle = std::move(handle), promise = std::move(promise)]() mutable {
         if(promise_ != nullptr)
         {
@@ -58,7 +58,7 @@ void AccessoryModeQueryChain::start(DeviceHandle handle, Promise::Pointer promis
                 });
 
             this->startQuery(AccessoryModeQueryType::PROTOCOL_VERSION,
-                             std::make_shared<USBEndpoint>(usbWrapper_, strand_.get_io_service(), std::move(handle)),
+                             std::make_shared<USBEndpoint>(usbWrapper_, strand_.context(), std::move(handle)),
                              std::move(queryPromise));
         }
     });
