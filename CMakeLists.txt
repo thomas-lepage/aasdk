@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.5.1)
 project(aasdk CXX)
 
+set (AASDK_VERSION_MAJOR 1)
+set (AASDK_VERSION_MINOR 0)
+set (AASDK_VERSION_PATCH 0)
+
 set(base_directory ${CMAKE_CURRENT_SOURCE_DIR})
 set(sources_directory ${base_directory}/src)
 
@@ -71,6 +75,12 @@ target_link_libraries(aasdk
                         ${PROTOBUF_LIBRARIES}
                         ${OPENSSL_LIBRARIES}
                         ${WINSOCK2_LIBRARIES})
+
+set(AASDK_VERSION_STRING ${AASDK_VERSION_MAJOR}.${AASDK_VERSION_MINOR}.${AASDK_VERSION_PATCH})
+set_target_properties(aasdk PROPERTIES VERSION ${AASDK_VERSION_STRING}
+                                          SOVERSION ${AASDK_VERSION_MAJOR})
+
+INSTALL(TARGETS aasdk DESTINATION lib)
 
 if(AASDK_TEST)
     add_executable(aasdk_ut
