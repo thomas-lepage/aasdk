@@ -18,6 +18,7 @@
 
 #include <f1x/aasdk/Messenger/MessageInStream.hpp>
 #include <f1x/aasdk/Error/Error.hpp>
+#include <f1x/aasdk/Common/Log.hpp>
 
 namespace f1x
 {
@@ -63,6 +64,10 @@ void MessageInStream::startReceive(ReceivePromise::Pointer promise)
 void MessageInStream::receiveFrameHeaderHandler(const common::DataConstBuffer& buffer)
 {
     FrameHeader frameHeader(buffer);
+    
+    if (buffer.cdata[0] != 3) {
+        AASDK_LOG(debug) << "Message from channel " << std::to_string(buffer.cdata[0]);
+    }
 
     if(message_ == nullptr)
     {
@@ -111,7 +116,7 @@ void MessageInStream::receiveFrameSizeHandler(const common::DataConstBuffer& buf
 }
 
 void MessageInStream::receiveFramePayloadHandler(const common::DataConstBuffer& buffer)
-{   
+{
     if(message_->getEncryptionType() == EncryptionType::ENCRYPTED)
     {
         try
