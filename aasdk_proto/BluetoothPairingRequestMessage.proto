@@ -24,6 +24,6 @@ package f1x.aasdk.proto.messages;
 
 message BluetoothPairingRequest
 {
-    required required string phone_address = 1;
+    required string phone_address = 1;
     required enums.BluetoothPairingMethod.Enum pairing_method = 2;
 }

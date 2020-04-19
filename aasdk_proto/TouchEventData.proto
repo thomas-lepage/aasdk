@@ -27,5 +27,5 @@ message TouchEvent
 {
     repeated data.TouchLocation touch_location = 1;
     optional uint32 action_index = 2;
-    required optional enums.TouchAction.Enum touch_action = 3;
+    required enums.TouchAction.Enum touch_action = 3;
 }
