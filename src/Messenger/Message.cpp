@@ -86,7 +86,7 @@ void Message::insertPayload(const google::protobuf::Message& message)
 {
     auto offset = payload_.size();
     if (message.GetTypeName() != "f1x.aasdk.proto.messages.AVMediaAckIndication") {
-        AASDK_LOG(debug) << message.GetTypeName() << " - " + message.DebugString();
+      //  AASDK_LOG(debug) << message.GetTypeName() << " - " + message.DebugString();
     }
     payload_.resize(payload_.size() + message.ByteSize());
 

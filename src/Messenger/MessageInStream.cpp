@@ -67,7 +67,7 @@ void MessageInStream::receiveFrameHeaderHandler(const common::DataConstBuffer& b
     FrameHeader frameHeader(buffer);
 
     if (buffer.cdata[0] != 3) {
-        AASDK_LOG(debug) << "Message from channel " << std::to_string(buffer.cdata[0]);
+        //AASDK_LOG(debug) << "Message from channel " << std::to_string(buffer.cdata[0]);
     }
 
     if(message_ != nullptr && message_->getChannelId() != frameHeader.getChannelId())
