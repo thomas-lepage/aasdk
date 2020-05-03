@@ -1,4 +1,4 @@
-### Compilation * tested on ubuntu 19.10
+### Compilation tested on ubuntu 19.10 and 20.04 LTS
 
 package to install:
 dh-autoreconf
