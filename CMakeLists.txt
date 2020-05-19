@@ -48,7 +48,6 @@ set(AASDK_PROTO_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR})
 
 include_directories(${AASDK_PROTO_INCLUDE_DIRS}
                         ${Boost_INCLUDE_DIRS}
-                        ${LIBUSB_1_INCLUDE_DIRS}
                         ${PROTOBUF_INCLUDE_DIR}
                         ${OPENSSL_INCLUDE_DIR}
                         ${GTEST_INCLUDE_DIRS}
@@ -70,8 +69,8 @@ add_library(aasdk SHARED
 add_dependencies(aasdk aasdk_proto)
 target_link_libraries(aasdk
                         aasdk_proto
+                        libusb
                         ${Boost_LIBRARIES}
-                        ${LIBUSB_1_LIBRARIES}
                         ${PROTOBUF_LIBRARIES}
                         ${OPENSSL_LIBRARIES}
                         ${WINSOCK2_LIBRARIES})
