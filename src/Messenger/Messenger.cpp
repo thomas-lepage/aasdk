@@ -74,6 +74,10 @@ void Messenger::inStreamMessageHandler(Message::Pointer message)
 {
     auto channelId = message->getChannelId();
 
+    if (message->getChannelId() != ChannelId::VIDEO) {
+        //AASDK_LOG(debug) << channelIdToString(message->getChannelId()) << ": " << common::dump(message->getPayload());
+    }
+
     if(channelReceivePromiseQueue_.isPending(channelId))
     {
         channelReceivePromiseQueue_.pop(channelId)->resolve(std::move(message));

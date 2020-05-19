@@ -6,7 +6,6 @@
 *  it under the terms of the GNU General Public License as published by
 *  the Free Software Foundation; either version 3 of the License, or
 *  (at your option) any later version.
-
 *  aasdk is distributed in the hope that it will be useful,
 *  but WITHOUT ANY WARRANTY; without even the implied warranty of
 *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -20,9 +19,7 @@ syntax="proto2";
 
 package f1x.aasdk.proto.data;
 
-message Speed
+message MediaInfoChannel
 {
-    required int32 speed = 1;
-    optional bool cruise_engaged = 2;
-    optional bool cruise_set_speed = 3;
+
 }
